@@ -1,7 +1,7 @@
 DROP TABLE book CASCADE;
-DROP TABLE borrowing;
-DROP TABLE lib_user;
-DROP TABLE students;
-DROP TABLE admins;
-DROP TABLE fines;
-DROP TABLE transactions;
+DROP TABLE borrowing CASCADE;
+DROP TABLE lib_user CASCADE;
+DROP TABLE students CASCADE;
+DROP TABLE admins CASCADE;
+DROP TABLE fines CASCADE;
+DROP TABLE transactions CASCADE;
