@@ -1,4 +1,4 @@
-DROP TABLE book;
+DROP TABLE book CASCADE;
 DROP TABLE borrowing;
 DROP TABLE lib_user;
 DROP TABLE students;
