@@ -1,8 +1,8 @@
 INSERT INTO book (physical_id, title, isbn, author, edition, genre, language, publisher, date_of_publication, prequel, damage) VALUES
-(1, 'Mysteries of the Silent Ocean', 9780316031, 'Avery Blake', 1, 'Mystery', 'English', 'Oceanic Press', '2020-06-15', NULL, FALSE),
-(2, 'Mysteries of the Silent Ocean', 9780316031, 'Avery Blake', 1, 'Mystery', 'English', 'Oceanic Press', '2020-06-15', NULL, FALSE),
-(3, 'The Rise and Fall of the Wandering Star', 9780316032, 'Jordan Lee', 1, 'Fantasy', 'English', 'Starlight Publications', '2019-05-10', NULL, FALSE),
-(4, 'Echoes of the Forgotten Path', 9780316033, 'Chris Doe', 2, 'Adventure', 'English', 'Pathfinder Books', '2021-09-20', NULL, FALSE),
+(1, 'Mysteries of the Silent Ocean', 9780316031, 'Avery Blake', 1, 'Mystery', 'English', 'Oceanic Press', '2020-06-15', 0, FALSE),
+(2, 'Mysteries of the Silent Ocean', 9780316031, 'Avery Blake', 1, 'Mystery', 'English', 'Oceanic Press', '2020-06-15', 0, FALSE),
+(3, 'The Rise and Fall of the Wandering Star', 9780316032, 'Jordan Lee', 1, 'Fantasy', 'English', 'Starlight Publications', '2019-05-10', 0, FALSE),
+(4, 'Echoes of the Forgotten Path', 9780316033, 'Chris Doe', 2, 'Adventure', 'English', 'Pathfinder Books', '2021-09-20', 4, FALSE),
 (5, 'Echoes of the Forgotten Path', 9780316033, 'Chris Doe', 2, 'Adventure', 'English', 'Pathfinder Books', '2021-09-20', 4, FALSE),
 (6, 'Whispers of the Ancient Forest', 9780316034, 'Alex Reed', 1, 'Historical Fiction', 'English', 'Ancient Tales', '2018-03-11', NULL, TRUE),
 (7, 'Chronicles of the Lost Empire', 9780316035, 'Samantha Green', 1, 'Epic', 'English', 'Empire Press', '2022-12-05', NULL, FALSE);
