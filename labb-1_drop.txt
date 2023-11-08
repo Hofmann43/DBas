@@ -1,0 +1,7 @@
+DROP TABLE book;
+DROP TABLE borrowing;
+DROP TABLE lib_user;
+DROP TABLE students;
+DROP TABLE admins;
+DROP TABLE fines;
+DROP TABLE transactions;
