@@ -10,7 +10,8 @@ CREATE TABLE book(
   language VARCHAR(255) NOT NULL,
   publisher VARCHAR(255) NOT NULL,
   date_of_publication DATE NOT NULL,
-  prequel INT NOT NULL, damage BOOL 
+  prequel INT,
+  damage BOOL 
 );
 
 CREATE TABLE borrowing(
