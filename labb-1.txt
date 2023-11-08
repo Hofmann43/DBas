@@ -1,19 +1,76 @@
-CREATE TABLE book( phusical_id INT NOT NULL PRIMARY KEY, title VARCHAR(255) NOT NULL, isbn INT NOT NULL, author VARCHAR(255) NOTT NULL, edition INT NOT NULL, genre VARCHAR(255) NOT NULL, language VARCHAR(255) NOT NULL, publisher VARCHAR(255) NOT NULL, date_of_publication DATE NOT NULL, prequel INT NOT NULL, damage BOOL )
-
-CREATE TABLE borrowing( borrowing_id INT NOT NULL PRIMARY KEY, physical_id INT NOT NULL, user_id INT NOT NULL, date_of_birth DATE NOT NULL, due_date DATE NOT NULL, date_of_return DATE, FOREING KEY(physical_id))
-
-CREATE TABLE user( user_id INT NOT NULL PRIMARY KEY, full_name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, address VARCHAR(255) NOT NULL)
 
 
-CREATE TABLE students( user_id INT NOT NULL PRIMARY KEY, programme VARCHAR(255) NOT NULL, FOREING KEY(user_id) )
+CREATE TABLE book(
+  physical_id INT NOT NULL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  isbn INT NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  edition INT NOT NULL,
+  genre VARCHAR(255) NOT NULL,
+  language VARCHAR(255) NOT NULL,
+  publisher VARCHAR(255) NOT NULL,
+  date_of_publication DATE NOT NULL,
+  prequel INT NOT NULL, damage BOOL 
+);
+
+CREATE TABLE borrowing(
+  borrowing_id INT NOT NULL PRIMARY KEY,
+  physical_id INT NOT NULL, user_id INT NOT NULL,
+  date_of_birth DATE NOT NULL, due_date DATE NOT NULL,
+  date_of_return DATE,
+  CONSTRAINT fk_book 
+    FOREIGN KEY (physical_id)
+  REFERENCES book (physical_id),
+    CONSTRAINT fk_user
+  FOREIGN KEY (user_id)
+    REFERENCES lib_user(user_id)
+);
+
+CREATE TABLE lib_user(
+  user_id INT NOT NULL PRIMARY KEY,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  address VARCHAR(255) NOT NULL
+);
 
 
-CREATE TABLE admins( user_id INT NOT NULL PRIMARY KEY, phone_number INT NOT NULL, department VARCHAR(255) NOT NULL, FOREING KEY(user_id) )
+CREATE TABLE students(
+  user_id INT NOT NULL PRIMARY KEY,
+  programme VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_user
+  FOREIGN KEY(user_id) 
+    REFERENCES lib_user(user_id)
+);
 
 
-CREATE TABLE fines( borrowing_id INT NOT NULL PRIMARY KEY, amount INT NOT NULL, FOREING KEY(borrowing_id) )
+CREATE TABLE admins(
+  user_id INT NOT NULL PRIMARY KEY,
+  phone_number INT NOT NULL,
+  department VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_user
+  FOREIGN KEY(user_id)
+    REFERENCES lib_user(user_id)
+);
 
 
-CREATE TABLE transactions( transaction_id INT NOT NULL PRIMARY KEY, borrowing_id INT NOT NULL, amount INT NOT NULL, date_of_payment DATE NOT NULL, payment_method VARCHAR(255) NOT NULL, FOREING KEY(borrowing_id) )
+CREATE TABLE fines(
+  borrowing_id INT NOT NULL PRIMARY KEY,
+  amount INT NOT NULL,
+    CONSTRAINT fk_borrowing
+  FOREIGN KEY(borrowing_id) 
+    REFERENCES borrowing(borrowing_id)
+);
+
+
+CREATE TABLE transactions(
+  transaction_id INT NOT NULL PRIMARY KEY,
+  borrowing_id INT NOT NULL,
+  amount INT NOT NULL,
+  date_of_payment DATE NOT NULL,
+  payment_method VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_borrowing
+  FOREIGN KEY(borrowing_id) 
+    REFERENCES borrowing(borrowing_id)
+);
 
 
