@@ -3,7 +3,7 @@
 CREATE TABLE book(
   physical_id INT NOT NULL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
-  isbn INT NOT NULL,
+  isbn VARCHAR(255) NOT NULL,
   author VARCHAR(255) NOT NULL,
   edition INT NOT NULL,
   genre VARCHAR(255) NOT NULL,
