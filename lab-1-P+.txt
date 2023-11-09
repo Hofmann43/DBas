@@ -48,6 +48,7 @@ full_name VARCHAR(255) NOT NULL,
 
 
 CREATE TABLE treating (
+PRIMARY KEY (treating_dr_id,treating_pt_id),
 treating_dr_id INT NOT NULL,
 treating_pt_id INT NUT NULL,
 CONSTRAINT fk_doctor
