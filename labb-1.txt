@@ -2,12 +2,12 @@ CREATE TABLE book(
   physical_id INT NOT NULL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
   isbn VARCHAR(255) NOT NULL,
-  author VARCHAR(255) NOT NULL,
-  edition INT NOT NULL,
+  author VARCHAR(255),
+  edition INT,
   genre VARCHAR(255) NOT NULL,
-  language VARCHAR(255) NOT NULL,
-  publisher VARCHAR(255) NOT NULL,
-  date_of_publication DATE NOT NULL,
+  language VARCHAR(255),
+  publisher VARCHAR(255),
+  date_of_publication DATE,
   prequel INT,
   damage BOOL 
 );
@@ -18,8 +18,8 @@ CREATE TABLE borrowing(
   borrowing_id INT NOT NULL PRIMARY KEY,
   physical_id INT NOT NULL,
   user_id INT NOT NULL,
-  date_of_birth DATE NOT NULL
-  due_date DATE NOT NULL,
+  date_of_borrowing DATE,
+  due_date DATE,
   date_of_return DATE,
   CONSTRAINT fk_book 
     FOREIGN KEY (physical_id)
