@@ -33,7 +33,7 @@ REFERENCES employee (employee_id)
 
 CREATE TABLE nurse(
 nurse_id INT NOT NULL PRIMARY KEY,
-degree VARCHAR(255) NOT NULL
+degree VARCHAR(255) NOT NULL,
 CONSTRAINT fk_nurse
   FOREIGN KEY (nurse_id)
 REFERENCES employee (employee_id)
@@ -44,7 +44,7 @@ CREATE TABLE patient(
 patient_id INT PRIMARY KEY NOT NULL,
 diagnosises VARCHAR(255),
 age INT,
-full_name VARCHAR(255) NOT NULL,
+full_name VARCHAR(255) NOT NULL
 );
 
 
