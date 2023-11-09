@@ -1,1 +1,26 @@
 
+CREATE TABLE department(
+building_nr INT PRIMART KEY NOT NULL,
+department_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE employee(
+id INT PRIMARY KEY NOT NULL,
+name VARCHAR(255) NOT NUL 
+):
+
+CREATE TABLE doctor(
+specialization VARCHAR(255) NOT NULL,
+room_nr INT
+);
+
+CREATE TABLE nurse(
+degree VARCHAR(255) NOT NULL
+); 
+
+CREATE TABLE patient(
+id INT PRIMARY KEY NOT NULL,
+diagnosises VARCHAR(255) NOT NULL,
+age INT NOT NULL,
+name VARCHAR(255) NOT NULL
+);
