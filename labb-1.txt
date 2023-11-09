@@ -14,23 +14,6 @@ CREATE TABLE book(
 
 GRANT ALL PRIVILEGES ON TABLE book TO jgugolz;
 
-CREATE TABLE borrowing(
-  borrowing_id INT NOT NULL PRIMARY KEY,
-  physical_id INT NOT NULL,
-  user_id INT NOT NULL,
-  date_of_borrowing DATE,
-  due_date DATE,
-  date_of_return DATE,
-  CONSTRAINT fk_book 
-    FOREIGN KEY (physical_id)
-  REFERENCES book (physical_id),
-    CONSTRAINT fk_user
-  FOREIGN KEY (user_id)
-    REFERENCES lib_user(user_id)
-);
-
-GRANT ALL PRIVILEGES ON TABLE borrowing TO jgugolz;
-
 CREATE TABLE lib_user(
   user_id INT NOT NULL PRIMARY KEY,
   full_name VARCHAR(255) NOT NULL,
@@ -61,6 +44,23 @@ CREATE TABLE admins(
 
 GRANT ALL PRIVILEGES ON TABLE admins TO jgugolz;
 
+CREATE TABLE borrowing(
+  borrowing_id INT NOT NULL PRIMARY KEY,
+  physical_id INT NOT NULL,
+  user_id INT NOT NULL,
+  date_of_borrowing DATE,
+  due_date DATE,
+  date_of_return DATE,
+  CONSTRAINT fk_book 
+    FOREIGN KEY (physical_id)
+  REFERENCES book (physical_id),
+    CONSTRAINT fk_user
+  FOREIGN KEY (user_id)
+    REFERENCES lib_user(user_id)
+);
+
+GRANT ALL PRIVILEGES ON TABLE borrowing TO jgugolz;
+
 CREATE TABLE fines(
   borrowing_id INT NOT NULL PRIMARY KEY,
   amount INT NOT NULL,
@@ -70,7 +70,6 @@ CREATE TABLE fines(
 );
 
 GRANT ALL PRIVILEGES ON TABLE fines TO jgugolz;
-
 
 CREATE TABLE transactions(
   transaction_id INT NOT NULL PRIMARY KEY,
