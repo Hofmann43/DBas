@@ -14,7 +14,7 @@ start_date DATE NOT NULL,
 mentor_id INT,
 CONSTRAINT fk_department
   FOREIGN KEY (department_name)
-REFRENCES department(department_name),
+REFERENCES department(department_name),
   CONSTRAINT fk_mentor
 FOREIGN KEY (mentor_id)
   REFERENCES employee (employee_id)
@@ -54,8 +54,8 @@ treating_dr_id INT NOT NULL,
 treating_pt_id INT NOT NULL,
 CONSTRAINT fk_doctor
   FOREIGN KEY (treating_dr_id)
-REFERENCES doctor ( doctor_id),
+REFERENCES doctor (doctor_id),
   CONSTRAINT fk_patient
 FOREIGN KEY (treating_pt_id)
-  REFERENCES patient ( patient_id)
+  REFERENCES patient (patient_id)
 );
