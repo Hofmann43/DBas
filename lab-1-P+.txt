@@ -7,17 +7,18 @@ building_nr INT NOT NULL
 
 CREATE TABLE employee(
 employee_id INT PRIMARY KEY NOT NULL,
-full_name VARCHAR(255) NOT NUL, 
+full_name VARCHAR(255) NOT NULL, 
 phone_nr VARCHAR(255),
 department_name VARCHAR(255) NOT NULL,
 start_date DATE NOT NULL,
+mentor_id INT,
 CONSTRAINT fk_department
   FOREIGN KEY (department_name)
 REFRENCES department(department_name),
   CONSTRAINT fk_mentor
 FOREIGN KEY (mentor_id)
   REFERENCES employee (employee_id)
-):
+);
 
 
 CREATE TABLE doctor(
@@ -31,7 +32,7 @@ REFERENCES employee (employee_id)
 
 
 CREATE TABLE nurse(
-nurse_is INT NOT NULL PRIMARY KEY,
+nurse_id INT NOT NULL PRIMARY KEY,
 degree VARCHAR(255) NOT NULL
 CONSTRAINT fk_nurse
   FOREIGN KEY (nurse_id)
@@ -50,7 +51,7 @@ full_name VARCHAR(255) NOT NULL,
 CREATE TABLE treating (
 PRIMARY KEY (treating_dr_id,treating_pt_id),
 treating_dr_id INT NOT NULL,
-treating_pt_id INT NUT NULL,
+treating_pt_id INT NOT NULL,
 CONSTRAINT fk_doctor
   FOREIGN KEY (treating_dr_id)
 REFERENCES doctor ( doctor_id),
