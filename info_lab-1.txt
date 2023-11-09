@@ -8,11 +8,11 @@ INSERT INTO book (physical_id, title, isbn, author, edition, genre, language, pu
 (7, 'Chronicles of the Lost Empire', 9780316035, 'Samantha Green', 1, 'Epic', 'English', 'Empire Press', '2022-12-05', 0, FALSE);
 
 
-INSERT INTO borrowing (borrowing_id, physical_id, user_id, date_of_birth, due_date, date_of_return) VALUES
-(301, 1, 101, '2000-04-16', '2023-12-01', NULL),
-(302, 4, 103, '1999-08-23', '2023-11-15', NULL),
-(303, 3, 102, '2001-05-14', '2023-10-10', '2023-10-11'),
-(304, 6, 104, '2002-02-19', '2023-10-15', '2023-10-18');
+INSERT INTO borrowing (borrowing_id, physical_id, user_id, date_of_borrowing, due_date, date_of_return) VALUES
+(301, 1, 101, '2023-11-16', '2023-12-01', NULL),
+(302, 4, 103, '2023-09-28', '2023-11-15', NULL),
+(303, 3, 102, '2023-09-10', '2023-10-10', '2023-10-10'),
+(304, 6, 104, '2023-08-15', '2023-10-15', '2023-10-18');
 
 students
 
@@ -38,10 +38,10 @@ INSERT INTO admins (user_id, phone_number, department) VALUES
 (201, 5551234, 'Library Services');
 
 INSERT INTO fines (borrowing_id, amount) VALUES
-(303, 5);
+(304, 10);
 
 INSERT INTO transactions (transaction_id, borrowing_id, amount, date_of_payment, payment_method) VALUES
-(501, 303, 5, '2023-10-12', 'Credit Card');
+(501, 304, 10, '2023-10-18', 'Credit Card');
 
 
 
