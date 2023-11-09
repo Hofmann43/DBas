@@ -35,7 +35,7 @@ GRANT ALL PRIVILEGES ON TABLE students TO jgugolz;
 
 CREATE TABLE admins(
   user_id INT NOT NULL PRIMARY KEY,
-  phone_number INT NOT NULL,
+  phone_number VARCHAR(255) NOT NULL,
   department VARCHAR(255) NOT NULL,
     CONSTRAINT fk_user
   FOREIGN KEY(user_id)
