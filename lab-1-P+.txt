@@ -13,7 +13,7 @@ department_name VARCHAR(255) NOT NULL,
 start_date DATE NOT NULL,
 CONSTRAINT fk_department
   FOREIGN KEY (department_name)
-REFERENCES department(department_name),
+REFERENCES department(department_name)
 );
 
 CREATE TABLE mentor ( 
@@ -21,7 +21,7 @@ mentor INT NOT NULL PRIMARY KEY,
 mentor_to INT NOT NULL,
 CONSTRAINT fk_mentor
   FOREIGN KEY (mentor)
-REFERENCES employee (employee_id)
+REFERENCES employee (employee_id),
 CONSTRAINT fk_mentor
   FOREIGN KEY (mentor_to)
 REFERENCES (employee_id)
