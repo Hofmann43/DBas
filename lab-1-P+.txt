@@ -11,31 +11,38 @@ full_name VARCHAR(255) NOT NULL,
 phone_nr VARCHAR(255),
 department_name VARCHAR(255) NOT NULL,
 start_date DATE NOT NULL,
-mentor_id INT,
 CONSTRAINT fk_department
   FOREIGN KEY (department_name)
 REFERENCES department(department_name),
-  CONSTRAINT fk_mentor
-FOREIGN KEY (mentor_id)
-  REFERENCES employee (employee_id)
+);
+
+CREATE TABLE mentor ( 
+mentor INT NOT NULL PRIMARY KEY,
+mentor_to INT NOT NULL,
+CONSTRAINT fk_mentor
+  FOREIGN KEY (mentor)
+REFERENCES employee (employee_id)
+CONSTRAINT fk_mentor
+  FOREIGN KEY (mentor_to)
+REFERENCES (employee_id)
 );
 
 
 CREATE TABLE doctor(
-doctor_id INT NOT NULL PRIMARY KEY,
+employee_id INT NOT NULL PRIMARY KEY,
 specialization VARCHAR(255) NOT NULL,
 room_nr INT NOT NULL,
 CONSTRAINT fk_doctor
-  FOREIGN KEY (doctor_id)
+  FOREIGN KEY (employee_id)
 REFERENCES employee (employee_id)
 );
 
 
 CREATE TABLE nurse(
-nurse_id INT NOT NULL PRIMARY KEY,
+employee_id INT NOT NULL PRIMARY KEY,
 degree VARCHAR(255) NOT NULL,
 CONSTRAINT fk_nurse
-  FOREIGN KEY (nurse_id)
+  FOREIGN KEY (employee_id)
 REFERENCES employee (employee_id)
 ); 
 
@@ -49,13 +56,13 @@ full_name VARCHAR(255) NOT NULL
 
 
 CREATE TABLE treating (
-PRIMARY KEY (treating_dr_id,treating_pt_id),
-treating_dr_id INT NOT NULL,
-treating_pt_id INT NOT NULL,
+PRIMARY KEY (employee_id, patient_id),
+employee_id INT NOT NULL,
+patient_id INT NOT NULL,
 CONSTRAINT fk_doctor
-  FOREIGN KEY (treating_dr_id)
-REFERENCES doctor (doctor_id),
+  FOREIGN KEY (employee_id)
+REFERENCES employee (employee_id),
   CONSTRAINT fk_patient
-FOREIGN KEY (treating_pt_id)
+FOREIGN KEY (patient_id)
   REFERENCES patient (patient_id)
 );
