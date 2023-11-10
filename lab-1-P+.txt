@@ -24,7 +24,7 @@ CONSTRAINT fk_mentor
 REFERENCES employee (employee_id),
 CONSTRAINT fk_mentor
   FOREIGN KEY (mentor_to)
-REFERENCES (employee_id)
+REFERENCES employee (employee_id)
 );
 
 
