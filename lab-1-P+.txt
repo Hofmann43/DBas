@@ -22,7 +22,6 @@ mentor_to INT NOT NULL,
 CONSTRAINT fk_mentor
   FOREIGN KEY (mentor)
 REFERENCES employee (employee_id),
-CONSTRAINT fk_mentor
   FOREIGN KEY (mentor_to)
 REFERENCES employee (employee_id)
 );
